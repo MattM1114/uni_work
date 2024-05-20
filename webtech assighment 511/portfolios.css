@@ -7,6 +7,11 @@ body {
     background-attachment: fixed;
     background-size: cover;
 }
+table{color:white}
+th{
+    width: 20%;
+}
+td{text-align: center;}
 
 /* Navbar container */
 .navbar {overflow: hidden;
