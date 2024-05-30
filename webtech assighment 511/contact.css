@@ -1,27 +1,18 @@
 body {
-    background-image: url('richfield_graduate_institute_of_technology_cover.jpeg');
-    background-repeat: no-repeat;
-    background-position: center;
-    font-family: Arial, sans-serif;
-    padding: 20px;
-    background-attachment: fixed;
+    background-image: url("Different-Colours_Blue-1024x614 (1).webp");
     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: aliceblue;
 }
-table{color:white}
-th{
-    width: 20%;
-}
-td{text-align: center;}
-
-
-/* Navbar container */
 .navbar {overflow: hidden;
     background-color: blue;
     font-family: Arial, sans-serif;
     }
     
-    /* links in the navbar*/
-    .navbar a{float: left;
+
+.navbar a{float: left;
     font-size: 16px;
     color: white;
     text-align: center;
@@ -61,3 +52,4 @@ td{text-align: center;}
         font-family: inherit;
         margin: 0;
     }
+    a{color: aquamarine;}
