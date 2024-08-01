@@ -12,14 +12,11 @@ th{
     width: 20%;
 }
 td{text-align: center;}
-
-
 /* Navbar container */
 .navbar {overflow: hidden;
     background-color: blue;
     font-family: Arial, sans-serif;
     }
-    
     /* links in the navbar*/
     .navbar a{float: left;
     font-size: 16px;
@@ -27,13 +24,11 @@ td{text-align: center;}
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;}
-    
     /* Dropdown button */
     .dropdown {
         float: left;
         overflow: hidden;
     }
-    
     .navbar a:hover,.dropdown:hover .dropbtn {
         background-color: #ddd;
         color: black;
