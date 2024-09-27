@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exchange Rate Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: white;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ddd;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #ffa500;
+            color: white;
+        }
+
+        input[type="number"] {
+            width: 60%;
+            padding: 20px;
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #4682b4;
+            color: white;
+            border: 2px solid #4682b4;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #4682b4;
+        }
+
+        .result {
+            margin-top: 10px;
+            font-size: 1.0em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1><b>Exchange Rate Calculator</b></h1>
+    <input type="number" id="zarInput" placeholder="Enter amount in ZAR" />
+
+    <!-- First Table: Exchange Rates -->
+    <table>
+        <thead>
+            <tr>
+                <th>Currency</th>
+                <th>Today's Exchange Rate</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>USD</td>
+                <td>18.24</td>
+            </tr>
+            <tr>
+                <td>EUR</td>
+                <td>19.89</td>
+            </tr>
+            <tr>
+                <td>GBP</td>
+                <td>23.60</td>
+            </tr>
+            <tr>
+                <td>JPY</td>
+                <td>0.12</td>
+            </tr>
+            <tr>
+                <td>AUD</td>
+                <td>12.22</td>
+            </tr>
+            <tr>
+                <td>CAD</td>
+                <td>13.31</td>
+            </tr>
+            <tr>
+                <td>CHF</td>
+                <td>20.56</td>
+            </tr>
+            <tr>
+                <td>CNY</td>
+                <td>2.51</td>
+            </tr>
+            <tr>
+                <td>INR</td>
+                <td>0.22</td>
+            </tr>
+            <tr>
+                <td>BRL</td>
+                <td>3.37</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button onclick="convertCurrency()">Convert Currency to ZAR</button>
+
+    <!-- Second Table: Conversion Results -->
+    <table id="conversionTable" style="display: none;">
+        <thead>
+            <tr>
+                <th>Currency</th>
+                <th>Converted Amount</th>
+            </tr>
+        </thead>
+        <tbody id="conversionTableBody"></tbody>
+    </table>
+
+    <div class="result" id="resultContainer"></div>
+
+    <script>
+        const rates = {
+            USD: 18.24,
+            EUR: 19.89,
+            GBP: 23.60,
+            JPY: 0.12,
+            AUD: 12.22,
+            CAD: 13.31,
+            CHF: 20.56,
+            CNY: 2.51,
+            INR: 0.22,
+            BRL: 3.37
+        };
+
+        function convertCurrency() {
+            const zarAmount = parseFloat(document.getElementById('zarInput').value);
+            if (isNaN(zarAmount) || zarAmount <= 0) {
+                alert("Please enter a valid amount in ZAR.");
+                return;
+            }
+
+            const conversionTable = document.getElementById('conversionTable');
+            const conversionTableBody = document.getElementById('conversionTableBody');
+
+            // Clear previous conversion results
+            conversionTableBody.innerHTML = '';
+
+            // Show conversion results table
+            conversionTable.style.display = 'table';
+
+            for (const [currency, rate] of Object.entries(rates)) {
+                const convertedAmount = (zarAmount / rate).toFixed(2);
+                const newRow = `<tr><td>${currency}</td><td>${convertedAmount}</td></tr>`;
+                conversionTableBody.innerHTML += newRow;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
