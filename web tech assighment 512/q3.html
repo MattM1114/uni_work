@@ -1,240 +1,107 @@
-q3
-<DOCTYPE html>
-    <html leng="eng">
+<!DOCTYPE html>
+<html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE-edge">
-        <meta name="viewpoint" content="width-device-width, initial- scale-1.0">
-        <title>Rock, Paper and Scissors</title>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper, Scissors</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="q3.css">
+</head>
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Montserrat&display=swap"
-            rel="stylesheet">
-
-        <link rel="stylesheet" href="stylezz.css">
-        <script src="logic.js" defer></script>
-
-    </head>
-
-    <body>
-        <div class="container">
-            <div class="headinng=container">
-                <h2>Rock <br> Paper <br> Scissors</h2>
-                <div clasds="score=container">
-                    <p>Score</p>
-                    <div id="score">0</div>
-                </div>
-            </div>
-            <div class="game=container">
-                <div id="rock" class="selectable rock"> 🤜🏽</div>
-                <div id="paper" class="selectable paper"> 🖐🏽</div>
-                <div id="scissors" class="selectable scissors"> ✌🏽</div>
-            </div>
-            <div class="winner-container-hide">
-                <div class="selected">
-                    <div id="user-results" class="selectable"></div>
-                    <p>You Picked</p>
-                </div>
-                <div class="selected">
-                    <div id="ai-results" class="selectable"></div>
-                    <p>AI Picked</p>
-                </div>
-                <div class="outcome">
-                    <h2 id="won-text"></h2>
-                    <button id="reset">Play Again</button>
-                </div>
+<body>
+    <div class="container">
+        <div class="heading-container">
+            <h2>Rock <br> Paper <br> Scissors</h2>
+            <div class="score-container">
+                <p>Score</p>
+                <div id="score">0</div>
             </div>
         </div>
+        <div class="game-container">
+            <div id="rock" class="selectable rock"> 🤜🏽</div>
+            <div id="paper" class="selectable paper"> 🖐🏽</div>
+            <div id="scissors" class="selectable scissors"> ✌🏽</div>
+        </div>
+        <div class="winner-container-hide" style="display: none;">
+            <div class="selected">
+                <div id="user-results" class="selectable"></div>
+                <p>You Picked</p>
+            </div>
+            <div class="selected">
+                <div id="ai-results" class="selectable"></div>
+                <p>AI Picked</p>
+            </div>
+            <div class="outcome">
+                <h2 id="won-text"></h2>
+                <button id="reset">Play Again</button>
+            </div>
+        </div>
+    </div>
 
-    </body>
+    <script>
+        // Select DOM elements
+        const userResults = document.getElementById('user-results');
+        const aiResults = document.getElementById('ai-results');
+        const scoreDisplay = document.getElementById('score');
+        const wonText = document.getElementById('won-text');
+        const resetButton = document.getElementById('reset');
+        const selectableElements = document.querySelectorAll('.selectable');
+        let userScore = 0;
+        let aiScore = 0;
 
-    </html>
-    css
-    *{
-    box-sizing: border-box;
-    margin: 0;
-    }
+        // Function to get AI choice
+        function getAIChoice() {
+            const choices = ['rock', 'paper', 'scissors'];
+            const randomIndex = Math.floor(Math.random() * choices.length);
+            return choices[randomIndex];
+        }
 
-    body{
-    font-family: "Montserrat", sans-serif;
-    }
-    .container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    min-height: 100%;
-    background: black;
-    color: #fff;
-    }
-    .heading-container{
-    display: flex;
-    justify-content: space-between;
-    width: 30%;
-    padding: 15%;
-    border: 5p solid #5f6f8a;
-    border-radius: 5px;
-    }
-    .score-container{
-    display: flex;
-    flex-direction: column;
-    align-item: center;
-    justify-content: center;
-    color: #b34d4;
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 8px;
-    font-weight: 800;
-    font-size: 1.5rem;
-    }
-    h2, #score{
-    font-family: 'lilita One', cursive;
-    font-size: 1.8rem;
-    line-height: 100%;
-    text-transform: uppercase;
-    }
+        // Function to determine the winner
+        function determineWinner(userChoice, aiChoice) {
+            if (userChoice === aiChoice) {
+                return "It's a tie!";
+            } else if (
+                (userChoice === 'rock' && aiChoice === 'scissors') ||
+                (userChoice === 'paper' && aiChoice === 'rock') ||
+                (userChoice === 'scissors' && aiChoice === 'paper')
+            ) {
+                userScore++;
+                return "You win!";
+            } else {
+                aiScore++;
+                return "AI wins!";
+            }
+        }
 
-    #score{
-    font-size: 2.5rem;
-    }
-    .game-container{
-    display: flex;
-    justify-content: space-evenly;
-    width: 80%;
-    margin-top: 1rem;
-    }
-    .selectable{
-    display: flex;
-    align-item: center;
-    justify-content: center;
-    font-size: 1.8rem;
-    width: 100px;
-    height: 100px;
-    border: 10px solid #5f6f8a;
-    border-radius: 50%;
-    color: #0080ff;
-    background-color: #fff;
-    cursor: pointer;
-    margin-bottom: 10px;
-    transition: all ease-in. 3s;
-    }
-    .selectable:hover{
-    transform: scale(1.1);
-    background-color: #deb887;;
-    }
-    .rock{
-    border-color: #49c1a2;
-    }
-    .paper{
-    border-color: #ff7f50;
-    }
-    .scissors{
-    border-color: #eba61f;
-    }
-    .winner-container{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 25px;
-    margin-top: 25px;
-    justify-content: space-evenly;
-    text-align: center;
-    }
-    .outcome {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    grid-column: span 2;
-    }
-    .hide{
-    display: none;
-    capacity: 0;
-    }
-    button{
-    margin-top: 1rem;
-    font-size: 1.2rem;
-    padding: 10px 25px;
-    cursor: pointer;
-    }
+        // Function to handle user selection
+        function handleUserChoice(userChoice) {
+            const aiChoice = getAIChoice();
+            userResults.innerHTML = `<div class="${userChoice}">${userChoice === 'rock' ? '🤜🏽' : userChoice === 'paper' ? '🖐🏽' : '✌🏽'}</div>`;
+            aiResults.innerHTML = `<div class="${aiChoice}">${aiChoice === 'rock' ? '🤜🏽' : aiChoice === 'paper' ? '🖐🏽' : '✌🏽'}</div>`;
+            wonText.innerText = determineWinner(userChoice, aiChoice);
+            scoreDisplay.innerText = userScore; // Display user score
+            document.querySelector('.winner-container-hide').style.display = 'block'; // Show results
+        }
 
-    java
-    const buttons = Array.from(document.getElementsByClassName("selectable"))
-    const user_result = document.querySelector("#user-results")
-    const ai_results = document.quesrySelector("#non-text")
-    const won_text = document.querySelector(".game-controller")
-    const the_game = document.querySelector(".game-container")
-    const display_results = document.querySelector(".winner-container")
-    const display_score = document.querySelector("#score")
-    const reset_game = document.querrySelector("#reset")
+        // Add event listeners to selectable elements
+        selectableElements.forEach(element => {
+            element.addEventListener('click', () => {
+                handleUserChoice(element.id);
+            });
+        });
 
-    const WINNER_COMBO = {
-    (
-    "selected": 'rock',
-    'beats': 'scissors',
-    'icon': '🤜🏽'
-    ),
-    (
-    'selected': 'paper',
-    'beats': 'rock',
-    'icon': '🖐🏽'
-    ),
-    (
-    'selected': 'scissors',
-    'beats': 'paper',
-    'icon': '✌🏽'
-    ),
-    }
+        // Reset the game
+        resetButton.addEventListener('click', () => {
+            userResults.innerHTML = '';
+            aiResults.innerHTML = '';
+            wonText.innerText = '';
+            document.querySelector('.winner-container-hide').style.display = 'none'; // Hide results
+        });
+    </script>
+</body>
 
-    let PLAYER_SCORE = 0
-
-    buttons.forEach( button => {
-    button,addEventListener('click', e => {
-    switch (e.target.id) {
-    case 'rock':
-    calculatewinner(WINNER_COMBO(0)), ai_selected())
-    break;
-    )
-    }}
-
-    }}
-    function ai_selected() {
-    const randomIndex = Math.floor(Math.random()* WINNER_COMBO.length)
-    return WINNER_COMBO[randomIndex]
-    }
-
-    function calculatewinner(user, ai){
-    if(user.beats = ai.selected) {
-    display_score.innerHTML = PLAYER_SCORE += 1
-    updateUI(user, ai , 'You Win')
-    return
-    }
-    if(user.selected == ai.selected){
-    updateUI(user, ai, 'Draw')
-    return
-    }
-    updateUI(user, ai, 'You Loose!')
-    }
-
-    function updateUI(user, ai, outcome_text) {
-    user_results.innerHTML = user.icon
-    user_results.classList.add('$(user.selected)')
-
-    ai_results.innerHTML = ai.icon
-    ai_results.classList.add('$(ai.selected)')
-
-    won_text.innerHTML = outcome_text
-    the_game.classList.add('hide')
-    display_results.classList.remove('hide')
-    }
-
-    reset_game.addEventListener('click', () => {
-    the_game.classList.remove('hide')
-    display_results.classList.add('hide')
-    user_results.classNmae ='selectable'
-    ai_results.className='selectable'
-    }
-    )
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bumble Family Anniversary RSVP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .container {
+            background: whitesmoke;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: auto;
+            max-width: 400px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #add8e6;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #87cefa;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Bumble's Family 25th Anniversary Invitation</h2>
+        <form id="rsvpForm">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" required>
+            <label for="phonenumber">Phone Number:</label>
+            <input type="text" id="phonenumber" required>
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" required>
+            <label for="attendees">Number of Attendees:</label>
+            <input type="number" id="attendees" min="1" required>
+            <label for="time">Arrival Time:</label>
+            <input type="time" id="time" required>
+            <label for="menu">Menu Preference:</label>
+            <input type="text" id="menutype" required>
+            <label for="tableoption">Seat Table Option:</label>
+            <input type="text" id="tableoption" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('rsvpForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const phonenumber = document.getElementById('phonenumber').value;
+            const email = document.getElementById('email').value;
+            const attendees = document.getElementById('attendees').value;
+            const time = document.getElementById('time').value;
+            const menutype = document.getElementById('menutype').value;
+            const tableoption = document.getElementById('tableoption').value;
+
+            // Store data in localStorage
+            localStorage.setItem('name', name);
+            localStorage.setItem('phonenumber', phonenumber);
+            localStorage.setItem('email', email);
+            localStorage.setItem('attendees', attendees);
+            localStorage.setItem('time', time);
+            localStorage.setItem('menu', menutype);
+            localStorage.setItem('tableoption', tableoption);
+
+            // Redirect to details page
+            window.location.href = 'q2_part2.html';
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bumble Family Anniversary RSVP Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            text-align: center;
+            padding: 50px;
+            position: relative;
+            /* Add relative positioning for confetti */
+            overflow: hidden;
+            /* Prevent scrollbars from showing */
+        }
+
+        .details {
+            background: whitesmoke;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: auto;
+            max-width: 400px;
+        }
+
+        .confetti {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+            display: none;
+        }
+
+        img {
+            width: 100%;
+            max-width: 300px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="details">
+        <h2>Thank You for RSVP'ing!</h2>
+        <p><strong>Name:</strong> <span id="displayName"></span></p>
+        <p><strong>Phone Number:</strong> <span id="displayPhone"></span></p>
+        <p><strong>Email:</strong> <span id="displayEmail"></span></p>
+        <p><strong>Number of Attendees:</strong> <span id="displayAttendees"></span></p>
+        <p><strong>Arrival Time:</strong> <span id="displayTime"></span></p>
+        <p><strong>Menu Preference:</strong> <span id="displayMenu"></span></p>
+        <p><strong>Seat Table Option:</strong> <span id="displayTable"></span></p>
+        <img src="image.png" alt="Mr. and Mrs. Bumble">
+    </div>
+    <div class="confetti" id="confetti"></div>
+
+    <script>
+        // Retrieve data from localStorage
+        document.getElementById('displayName').innerText = localStorage.getItem('name');
+        document.getElementById('displayPhone').innerText = localStorage.getItem('phonenumber');
+        document.getElementById('displayEmail').innerText = localStorage.getItem('email');
+        document.getElementById('displayAttendees').innerText = localStorage.getItem('attendees');
+        document.getElementById('displayTime').innerText = localStorage.getItem('time');
+        document.getElementById('displayMenu').innerText = localStorage.getItem('menu');
+        document.getElementById('displayTable').innerText = localStorage.getItem('tableoption');
+
+        // Function to show confetti
+        function showConfetti() {
+            const confetti = document.getElementById('confetti');
+            confetti.style.display = 'block';
+            for (let i = 0; i < 100; i++) {
+                const confettiPiece = document.createElement('div');
+                confettiPiece.style.position = 'absolute';
+                confettiPiece.style.width = '10px';
+                confettiPiece.style.height = '10px';
+                confettiPiece.style.backgroundColor = randomColor();
+                confettiPiece.style.top = Math.random() * window.innerHeight + 'px';
+                confettiPiece.style.left = Math.random() * window.innerWidth + 'px';
+                confetti.appendChild(confettiPiece);
+            }
+        }
+
+        function randomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        // Show confetti when the page loads
+        window.onload = showConfetti;
+    </script>
+</body>
+
+</html>
