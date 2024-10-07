@@ -41,7 +41,6 @@
             </div>
         </div>
     </div>
-
     <script>
         // Select DOM elements
         const userResults = document.getElementById('user-results');
@@ -52,14 +51,12 @@
         const selectableElements = document.querySelectorAll('.selectable');
         let userScore = 0;
         let aiScore = 0;
-
         // Function to get AI choice
         function getAIChoice() {
             const choices = ['rock', 'paper', 'scissors'];
             const randomIndex = Math.floor(Math.random() * choices.length);
             return choices[randomIndex];
         }
-
         // Function to determine the winner
         function determineWinner(userChoice, aiChoice) {
             if (userChoice === aiChoice) {
@@ -76,7 +73,6 @@
                 return "AI wins!";
             }
         }
-
         // Function to handle user selection
         function handleUserChoice(userChoice) {
             const aiChoice = getAIChoice();
@@ -86,14 +82,12 @@
             scoreDisplay.innerText = userScore; // Display user score
             document.querySelector('.winner-container-hide').style.display = 'block'; // Show results
         }
-
         // Add event listeners to selectable elements
         selectableElements.forEach(element => {
             element.addEventListener('click', () => {
                 handleUserChoice(element.id);
             });
         });
-
         // Reset the game
         resetButton.addEventListener('click', () => {
             userResults.innerHTML = '';
@@ -103,5 +97,4 @@
         });
     </script>
 </body>
-
 </html>
