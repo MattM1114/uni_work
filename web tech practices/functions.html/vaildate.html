@@ -1,0 +1,47 @@
+<html>
+    <head>
+        
+    </head>
+    <body>
+        
+    
+    <form name="myform">
+
+        <label for="name">name</label>
+        <input type="text" name="name" value=""required="">
+        <br>
+        <label for="last_name">last  name</label>
+        <input type=" text" name="last_name" value=""required="">
+        <br>
+        <label for="email">email</label>
+        <input type="text"name= "email" value=""required="">
+        <br>
+        <button type="submit">submit</button>
+
+
+        
+    </form>
+        <script>
+            function  validateForm() {
+                let x= document.forms["myform"]["name"]["last_name"]["email"].value;
+                if  (x == "") {
+                    alert ("Please fill in the all fields"); return false;}}
+            
+        
+
+
+
+
+
+
+
+
+
+
+        </script>
+
+
+    </body>
+        
+    
+</html>
