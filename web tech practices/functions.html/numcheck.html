@@ -1,27 +1,27 @@
 <html>
-    <head> numchek 1- 10</head>
-    <body>
-        <p>please enter  a number between 1 and 10</p>
-        <input id = "webtech">
-        <button type="button" onclick="myFunction()">submit</button>
-        <p  id="web">
-        <script>
-            function myFunction()
-            {
-                let x =  document.getElementById("webtech").value;
-                let text;
-                if(isNaN(x)||x < 1|| x> 10;)
-                {text = ' invalid input';}
-                else{
-                    text = 'valid input';
-                }
-            document.getElementById("web".)innerHTML= text;
 
+<head>
+    <title>NumCheck 1-10</title>
+</head>
 
+<body>
+    <p>Please enter a number between 1 and 10:</p>
+    <input id="webtech">
+    <button type="button" onclick="myFunction()">Submit</button>
+    <p id="web"></p>
+
+    <script>
+        function myFunction() {
+            let x = document.getElementById("webtech").value;
+            let text;
+            if (isNaN(x) || x < 1 || x > 10) {
+                text = 'Invalid input';
+            } else {
+                text = 'Valid input';
             }
-            </script>
-        </p>
+            document.getElementById("web").innerHTML = text;
+        }
+    </script>
+</body>
 
-
-    </body>
 </html>
