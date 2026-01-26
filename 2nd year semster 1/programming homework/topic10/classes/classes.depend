@@ -1,0 +1,29 @@
+# depslib dependency file v1.0
+1748538151 source:c:\users\user\onedrive - richfield graduate institute of technology\documents\2nd year semster 1\programming homework\topic10\classes\shape.cpp
+	<iostream>
+	"shape.h"
+
+1748537231 c:\users\user\onedrive - richfield graduate institute of technology\documents\2nd year semster 1\programming homework\topic10\classes\shape.h
+
+1748536183 source:c:\users\user\onedrive - richfield graduate institute of technology\documents\2nd year semster 1\programming homework\topic10\classes\rectangle.cpp
+	<iostream>
+	"rectangle.h"
+
+1748536548 c:\users\user\onedrive - richfield graduate institute of technology\documents\2nd year semster 1\programming homework\topic10\classes\rectangle.h
+	<iostream>
+	"shape.h"
+
+1748538276 source:c:\users\user\onedrive - richfield graduate institute of technology\documents\2nd year semster 1\programming homework\topic10\classes\main.cpp
+	<iostream>
+	"shape.h"
+	"rectangle.h"
+	"circle.h"
+
+1748537358 c:\users\user\onedrive - richfield graduate institute of technology\documents\2nd year semster 1\programming homework\topic10\classes\circle.h
+	<iostream>
+	"shape.h"
+
+1748538236 source:c:\users\user\onedrive - richfield graduate institute of technology\documents\2nd year semster 1\programming homework\topic10\classes\circle.cpp
+	<iostream>
+	"circle.h"
+

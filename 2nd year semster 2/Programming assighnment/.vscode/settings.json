@@ -1,0 +1,13 @@
+{
+    "CodeGPT.apiKey": "Ollama",
+    "files.associations": {
+        "*.embeddedhtml": "html",
+        "iostream": "cpp",
+        "cmath": "cpp",
+        "vector": "cpp",
+        "xiosbase": "cpp",
+        "xlocale": "cpp",
+        "xutility": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
+}

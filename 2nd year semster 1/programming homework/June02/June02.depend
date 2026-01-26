@@ -1,0 +1,24 @@
+# depslib dependency file v1.0
+1748873276 source:c:\users\user\onedrive - richfield graduate institute of technology\documents\2nd year semster 1\programming homework\june02\base.cpp
+	"Base.h"
+	<iostream>
+
+1748873276 c:\users\user\onedrive - richfield graduate institute of technology\documents\2nd year semster 1\programming homework\june02\base.h
+	<string>
+
+1748873276 source:c:\users\user\onedrive - richfield graduate institute of technology\documents\2nd year semster 1\programming homework\june02\car.cpp
+	"Car.h"
+	<iostream>
+
+1748873276 c:\users\user\onedrive - richfield graduate institute of technology\documents\2nd year semster 1\programming homework\june02\car.h
+	"base.h"
+	<string>
+
+1748873276 source:c:\users\user\onedrive - richfield graduate institute of technology\documents\2nd year semster 1\programming homework\june02\plane.cpp
+	"Plane.h"
+	<iostream>
+
+1748873276 c:\users\user\onedrive - richfield graduate institute of technology\documents\2nd year semster 1\programming homework\june02\plane.h
+	"base.h"
+	<string>
+
